@@ -1,4 +1,5 @@
 console.log ("yipikay");
+$(document).ready(function(){
 
 var base =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0"];
 //var length= Math.round(Math.random()* base.length);
@@ -32,5 +33,40 @@ function tableau (nLin, nCol){
 	return arr;
 	};
 
-	var affichage =tableau(3,4)		
-console.log(affichage);
+var affichage =tableau(10,10)		
+//console.log(affichage[0]);
+function resultat(nLin, nCol){
+
+	for (var i = 0; i<nLin; i++) {
+		var line = $("<tr class=''></tr>");
+		var rAbs = $("<input type='radio' name='option'>");
+		line.append(rAbs);
+		
+		
+		for (var j = 0; j < nCol; j++) {
+			line.append("<td>"+affichage[i][j]+" </td>")
+			$("#array").append(line);
+		};
+	};
+};
+
+function headArray(nord){
+	var head = $("<tr></tr>");
+	head.append("<td></td>")
+	for (var i=0; i<nord; i++){
+		var rOrd = $("<td><input type='radio' name='option'></td>");
+		head.append(rOrd);
+		console.log(head);
+	};
+	$("#array").append(head);	
+};
+
+ function regroup (Nlin, nCol){
+ 	headArray(nCol)
+ 	resultat(Nlin,nCol)
+ };
+
+regroup(10,10)
+//headArray(10);
+ //resultat(10,10);
+});
